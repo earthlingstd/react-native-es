@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "@earthling/react-native-es": {
+      "signature": "055f7e99e92da6036a9a5bc054d84dfc",
+      "file": true
+    }
+  }
+}

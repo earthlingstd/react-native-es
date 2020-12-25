@@ -1,0 +1,36 @@
+{
+  "name": "@earthling/react-native-es",
+  "version": "0.0.1",
+  "description": "ES Themed Components",
+  "main": "index.js",
+  "private": false,
+  "types": "./lib/index.d.ts",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "build": "rm -rf ./lib/* && tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/earthlingstd/react-native-es.git"
+  },
+  "author": "Earthling Studio",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.16",
+    "@types/react": "^17.0.0",
+    "@types/react-native": "^0.63.37",
+    "@types/react-test-renderer": "^17.0.0",
+    "react": "^17.0.1",
+    "react-native-safe-area-view": "^1.1.1",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "hoist-non-react-statics": "^3.3.2"
+  }
+}
