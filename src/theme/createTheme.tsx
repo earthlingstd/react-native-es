@@ -1,3 +1,6 @@
+/// <reference path="../../typings/lib.d.ts" />
+/// <reference path="../../typings/theme.d.ts" />
+
 import React from 'react'
 // import { Platform, StatusBar, useWindowDimensions } from 'react-native'
 
@@ -15,7 +18,7 @@ export type ThemeContextType<T> = {
   typography: Theme.Typography
 }
 
-export let ThemeContext: ThemeContextType<T>
+export let ThemeContext: any
 export let ThemeProvider: any
 
 function createTheme<T>(params: CreateThemeParams<T>) {

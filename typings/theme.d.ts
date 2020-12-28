@@ -1,9 +1,4 @@
-// Lib
-declare namespace L {
-  // Key-Value
-  export type KV<T> = { [key: string]: T }
-}
-
+/// <reference types="typescript" />
 declare namespace Theme {
   export type Typography = {
     footnote: number

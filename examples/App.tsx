@@ -10,29 +10,10 @@
 
 import React, {useState} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {StyleSheet, View, StatusBar, TouchableOpacity} from 'react-native';
+import {StyleSheet, StatusBar} from 'react-native';
 import ThemeProvider from './src/theme';
 
-import useTheme from '@earthling/react-native-es/lib/theme/useTheme';
-import Container from '@earthling/react-native-es/lib/components/Container';
-import {Color} from './src/theme/config';
-
-const Demo = ({onPress}) => {
-  const {color} = useTheme<Color>();
-  return (
-    <View style={[styles.scrollView, {backgroundColor: color.primary}]}>
-      <TouchableOpacity
-        onPress={onPress}
-        style={{
-          width: 100,
-          height: 44,
-          backgroundColor: color.secondary,
-          marginTop: 10,
-        }}
-      />
-    </View>
-  );
-};
+import Navigation from './src/navigation';
 
 const App = () => {
   const [theme, setTheme] = useState('light');
@@ -41,15 +22,7 @@ const App = () => {
     <SafeAreaProvider>
       <ThemeProvider colorKey={theme}>
         <StatusBar barStyle="dark-content" />
-        <Container safe>
-          <Demo
-            onPress={() => {
-              setTheme((t) => {
-                return t === 'light' ? 'dark' : 'light';
-              });
-            }}
-          />
-        </Container>
+        <Navigation />
       </ThemeProvider>
     </SafeAreaProvider>
   );

@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "outDir": "./lib",
     "strict": true,
     "allowJs": true,
     "esModuleInterop": true,
@@ -10,17 +9,17 @@
     "jsx": "react",
     "lib": ["es6"],
     "moduleResolution": "node",
-    "noEmit": false,
+    "noEmitOnError": true,
     "noImplicitAny": false,
     "declaration": true,
-    "noEmitOnError": true,
     "skipLibCheck": true,
     "pretty": true,
     "removeComments": false,
     "sourceMap": false,
     "strictPropertyInitialization": false,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "typeRoots": ["./typings", "node_modules/@types"]
   },
-  "include": ["src"],
+  "include": ["./src", "./typings"],
   "exclude": ["node_modules", "**/__tests__/*", "lib/**/*"]
 }
