@@ -11,7 +11,7 @@
 import React, {useState} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {StyleSheet, StatusBar} from 'react-native';
-import ThemeProvider from './src/theme';
+import {ThemeProvider} from './src/theme';
 
 import Navigation from './src/navigation';
 

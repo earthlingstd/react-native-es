@@ -6,7 +6,8 @@
  */
 
 import React from 'react'
-import { StyleProp, TextStyle, View, ViewStyle } from 'react-native'
+import { Platform, StyleProp, StyleSheet, TextStyle, View, ViewStyle } from 'react-native'
+import useTheme from '../../theme/useTheme'
 import Text from '../Typography/Text'
 
 type Props = {
@@ -43,15 +44,17 @@ type Props = {
 }
 
 const Content: React.FC<Props> = props => {
-  const { largeTitle, subtitle } = props
+  const { color } = useTheme<Theme.Color>()
+  const { largeTitle, subtitle, style } = props
   return (
-    <View>
+    <View style={[{ flex: 1, paddingHorizontal: 3 }, style]}>
       <Text
         numberOfLines={1}
         accessible
         accessibilityTraits="header"
         // @ts-ignore Type '"heading"' is not assignable to type ...
         accessibilityRole={Platform.OS === 'web' ? 'heading' : 'header'}
+        style={[props.largeTitle ? s.title__large : s.title, { color: color.headerText }]}
       >
         {props.title}
       </Text>
@@ -62,6 +65,37 @@ const Content: React.FC<Props> = props => {
 
 // Content.defaultProps = {}
 
-// const s = StyleSheet.create({})
+const s = StyleSheet.create({
+  title: Platform.select({
+    ios: {
+      fontSize: 17,
+      fontWeight: '600',
+    },
+    android: {
+      fontSize: 20,
+      fontFamily: 'sans-serif-medium',
+      fontWeight: 'normal',
+    },
+    default: {
+      fontSize: 18,
+      fontWeight: '500',
+    },
+  }),
+  title__large: Platform.select({
+    ios: {
+      fontSize: 22,
+      fontWeight: '600',
+    },
+    android: {
+      fontSize: 23,
+      fontFamily: 'sans-serif-medium',
+      fontWeight: 'normal',
+    },
+    default: {
+      fontSize: 21,
+      fontWeight: '500',
+    },
+  }),
+})
 
 export default Content

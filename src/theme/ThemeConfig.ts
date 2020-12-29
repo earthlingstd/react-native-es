@@ -1,3 +1,5 @@
+import { Platform } from 'react-native'
+
 export const typographies: L.KV<Theme.Typography> = {
   normal: {
     footnote: 13,
@@ -31,13 +33,17 @@ export const typographies: L.KV<Theme.Typography> = {
 export const colors: L.KV<Theme.Color> = {
   light: {
     id: 'light',
+    dark: false,
     name: 'Light',
-    primary: '#303D4F',
-    secondary: '#EF9517',
+
+    primary: '#EF9517',
+    secondary: '#303D4F',
+    // Header
     header: '#FFF', // 1C6786 394860
     headerText: '#121417',
+
     background: '#FFFFFF',
-    // separator: '#F4F8FB',
+    separator: '#F4F8FB',
     middle: '#FFFFFF',
     text: '#202328',
     shadowColor: '#3E3E3E',
@@ -51,3 +57,62 @@ export const colors: L.KV<Theme.Color> = {
     barStyle: 'dark-content',
   },
 }
+
+const fontConfig = {
+  web: {
+    regular: {
+      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
+      fontWeight: '400' as '400',
+    },
+    medium: {
+      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
+      fontWeight: '500' as '500',
+    },
+    light: {
+      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
+      fontWeight: '300' as '300',
+    },
+    thin: {
+      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
+      fontWeight: '100' as '100',
+    },
+  },
+  ios: {
+    regular: {
+      fontFamily: 'System',
+      fontWeight: '400' as '400',
+    },
+    medium: {
+      fontFamily: 'System',
+      fontWeight: '500' as '500',
+    },
+    light: {
+      fontFamily: 'System',
+      fontWeight: '300' as '300',
+    },
+    thin: {
+      fontFamily: 'System',
+      fontWeight: '100' as '100',
+    },
+  },
+  default: {
+    regular: {
+      fontFamily: 'sans-serif',
+      fontWeight: 'normal' as 'normal',
+    },
+    medium: {
+      fontFamily: 'sans-serif-medium',
+      fontWeight: 'normal' as 'normal',
+    },
+    light: {
+      fontFamily: 'sans-serif-light',
+      fontWeight: 'normal' as 'normal',
+    },
+    thin: {
+      fontFamily: 'sans-serif-thin',
+      fontWeight: 'normal' as 'normal',
+    },
+  },
+}
+
+export const fonts = Platform.select({ ...fontConfig }) as L.Fonts

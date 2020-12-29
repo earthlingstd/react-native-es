@@ -84,22 +84,22 @@ const Header: React.FC<Props> = props => {
             if (
               !React.isValidElement(child) ||
               ![
-                Content,
-                Action,
+                Content.name,
+                Action.name,
                 // @ts-ignore Type 'string' is not assignable to type
-              ].includes(child.type)
+              ].includes(child.type.name)
             ) {
               return child
             }
-
             const props: { color?: string; style?: StyleProp<ViewStyle> } = {
               color: typeof child.props.color !== 'undefined' ? child.props.color : '#000',
             }
 
-            if (child.type === Content) {
+            //@ts-ignore
+            if (child.type.name === Content.name) {
               props.style = [
                 // Since content is not first item, add extra left margin
-                i !== 0 && { marginLeft: 8 },
+                i === 0 && { marginLeft: 5 },
                 shouldCenterContent && { alignItems: 'center' },
                 child.props.style,
               ]
@@ -113,7 +113,7 @@ const Header: React.FC<Props> = props => {
 
 const s = StyleSheet.create({
   wrapper: {
-    paddingHorizontal: Metrics.layout.insets.horizontal,
+    paddingHorizontal: Metrics.layout.insets.horizontal - 5,
   },
 })
 

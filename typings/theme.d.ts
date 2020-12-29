@@ -12,7 +12,9 @@ declare namespace Theme {
 
   export type Color = {
     id: string
+    dark: boolean
     name: string
+
     primary: string
     secondary: string
     header: string
@@ -20,6 +22,7 @@ declare namespace Theme {
     background: string
     middle: string
     text: string
+    separator: string
     shadowColor: string
     gray: string
     gray2: string

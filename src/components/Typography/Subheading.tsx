@@ -1,5 +1,5 @@
 /**
- * Text
+ * Subheading
  *
  * @format
  *
@@ -13,11 +13,11 @@ import { TextProps } from './typings'
 // @component-group Typography
 
 /**
- * Text component which follows styles from the theme.
+ * Subheading component which follows styles from the theme.
  *
  * @extends Text props https://reactnative.dev/docs/text#props
  */
-const Text: React.FC<TextProps> = props => {
+const Subheading: React.FC<TextProps> = props => {
   const { color: colors, fonts, typography } = useTheme<Theme.Color>()
   const { color = 'text', style, weight = 'regular', ...rest } = props
   return (
@@ -29,7 +29,7 @@ const Text: React.FC<TextProps> = props => {
       style={[
         {
           ...fonts[weight],
-          fontSize: typography.body,
+          fontSize: typography.subhead,
           color: colors[color],
           textAlign: 'left',
         },
@@ -41,6 +41,4 @@ const Text: React.FC<TextProps> = props => {
   )
 }
 
-Text.defaultProps = {}
-
-export default Text
+export default Subheading

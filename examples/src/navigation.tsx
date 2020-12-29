@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './screens/Home';
 import Theme from './screens/Theme';
+import Buttons from './screens/Buttons';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -11,7 +12,7 @@ const Stack = createStackNavigator();
 function CommonNavigationBar(props) {
   const {scene, navigation, previous, insets, route} = props;
   const {options} = scene.descriptor;
-  console.log(options);
+
   const title =
     typeof options.headerTitle !== 'function' &&
     options.headerTitle !== undefined
@@ -41,6 +42,7 @@ const Navigation = () => {
           options={Home.navigationOptions}
         />
         <Stack.Screen name="Theme" component={Theme} />
+        <Stack.Screen name="Buttons" component={Buttons} />
       </Stack.Navigator>
     </NavigationContainer>
   );

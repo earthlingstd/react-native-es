@@ -4,21 +4,26 @@
  * @format
  *
  */
-import {Container, NavigationBar} from '@earthling/react-native-es';
-import {Theme} from '@earthling/react-native-es';
+import {Container, Button} from '@earthling/react-native-es';
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Color} from '../../theme/config';
+import {StyleSheet, View} from 'react-native';
+import {useTheme} from '../../theme';
 
 type Props = {};
 
 const HomeScreen: React.FC<Props> = (props) => {
-  const {color} = Theme.useTheme<Color>();
+  const {color} = useTheme();
 
   return (
     <Container safe>
-      <View style={[{flex: 1, backgroundColor: color.primary}]}>
-        <TouchableOpacity
+      <View style={[{flex: 1, backgroundColor: color.background}]}>
+        <Button.Text onPress={() => props.navigation.navigate('Buttons')}>
+          Buttons
+        </Button.Text>
+        <Button.Text onPress={() => props.navigation.navigate('Theme')}>
+          Theme
+        </Button.Text>
+        {/* <TouchableOpacity
           style={{
             height: 44,
             backgroundColor: color.secondary,
@@ -28,14 +33,14 @@ const HomeScreen: React.FC<Props> = (props) => {
           }}
           onPress={() => props.navigation.navigate('Theme')}>
           <Text>Colors</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </Container>
   );
 };
 
 HomeScreen['navigationOptions'] = (screenProps) => ({
-  title: 'Test',
+  title: 'Home',
 });
 
 const s = StyleSheet.create({});

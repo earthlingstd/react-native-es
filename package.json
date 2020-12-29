@@ -1,12 +1,12 @@
 {
   "name": "@earthling/react-native-es",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "ES themed components",
-  "main": "lib/commonjs/index.js",
+  "source": "src/index.tsx",
+  "main": "lib/module/index.js",
   "module": "lib/module/index.js",
   "react-native": "src/index.tsx",
-  "source": "src/index.tsx",
-  "types": "lib/typescript/src/index.d.ts",
+  "types": "lib/typescript/index.d.ts",
   "files": [
     "src",
     "lib",
@@ -18,8 +18,8 @@
   "private": false,
   "scripts": {
     "build": "rm -rf ./lib/* && tsc",
-    "prepare": "bob build",
-    "cp": "rm -rf ./lib/* && bob build && cp -R ./lib ./examples/node_modules/@earthling/react-native-es",
+    "prepare": "rm -rf ./lib/* && bob build",
+    "cp": "rm -rf ./lib/* && bob build && cp -R ./lib ./examples/node_modules/@earthling/react-native-es && cp -R ./src ./examples/node_modules/@earthling/react-native-es",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,6 +31,7 @@
   "author": "Earthling Studio",
   "license": "ISC",
   "devDependencies": {
+    "@types/color": "^3.0.1",
     "@types/jest": "^26.0.16",
     "@types/react": "^17.0.0",
     "@types/react-native": "^0.63.37",
@@ -43,6 +44,7 @@
     "typescript": "^4.1.2"
   },
   "dependencies": {
+    "color": "^3.1.3",
     "deepmerge": "^4.2.2",
     "hoist-non-react-statics": "^3.3.2"
   },
@@ -50,7 +52,6 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      "commonjs",
       "module",
       "typescript"
     ]

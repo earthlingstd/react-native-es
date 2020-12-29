@@ -1,6 +1,9 @@
+import color from 'color';
+
 export type Color = {
   id: string;
   name: string;
+  dark: boolean;
   primary: string;
   secondary: string;
   header: string;
@@ -17,49 +20,64 @@ export type Color = {
   gray6: string;
   white: string;
   barStyle: 'default' | 'light-content' | 'dark-content';
+  customColor: string;
 };
 
-export const colors = {
-  light: {
-    id: 'light',
-    name: 'Light',
-    primary: '#ffffff',
-    secondary: '#EF9517',
-    header: '#FFF', // 1C6786 394860
-    headerText: '#121417',
-    background: '#FFFFFF',
-    // separator: '#F4F8FB',
-    middle: '#FFFFFF',
-    text: '#202328',
-    shadowColor: '#3E3E3E',
-    gray: '#2D3239',
-    gray2: '#48505B',
-    gray3: '#636E7D',
-    gray4: '#7E8C9F',
-    gray5: '#99AAC1',
-    gray6: '#f2f2f7',
-    white: '#FFFFFF',
-    barStyle: 'dark-content',
-  },
+export const colors: L.KV<Color> = {
   dark: {
     id: 'light',
     name: 'Light',
-    primary: '#000000',
-    secondary: '#EF9517',
+    dark: false,
+    barStyle: 'dark-content',
+
+    primary: '#1976D2',
+    secondary: '#FFFFFF',
+
     header: '#FFF', // 1C6786 394860
     headerText: '#121417',
     background: '#FFFFFF',
+
+    // separator: '#F4F8FB',
+    white: '#FFFFFF',
+    middle: '#FFFFFF',
+    shadowColor: '#3E3E3E',
+
+    text: '#202328',
+    gray: color('#FFFFFF').mix(color('#202328'), 0.66).hex(),
+    gray2: color('#FFFFFF').mix(color('#202328'), 0.56).hex(),
+    gray3: color('#FFFFFF').mix(color('#202328'), 0.46).hex(),
+    gray4: color('#FFFFFF').mix(color('#202328'), 0.36).hex(),
+    gray5: color('#FFFFFF').mix(color('#202328'), 0.26).hex(),
+    gray6: color('#FFFFFF').mix(color('#202328'), 0.16).hex(),
+
+    customColor: '#FF00FF',
+  },
+  light: {
+    id: 'dark',
+    name: 'Dark',
+    dark: true,
+    barStyle: 'light-content',
+
+    primary: '#42A5F5',
+    secondary: '#121212',
+
+    header: '#121212', // 1C6786 394860
+    headerText: '#FFF',
+
+    background: '#121212',
     // separator: '#F4F8FB',
     middle: '#FFFFFF',
-    text: '#202328',
     shadowColor: '#3E3E3E',
-    gray: '#2D3239',
-    gray2: '#48505B',
-    gray3: '#636E7D',
-    gray4: '#7E8C9F',
-    gray5: '#99AAC1',
-    gray6: '#f2f2f7',
+
+    text: '#FFFFFF',
+    gray: color('#121212').mix(color('#FFFFFF'), 0.66).hex(),
+    gray2: color('#121212').mix(color('#FFFFFF'), 0.56).hex(),
+    gray3: color('#121212').mix(color('#FFFFFF'), 0.46).hex(),
+    gray4: color('#121212').mix(color('#FFFFFF'), 0.36).hex(),
+    gray5: color('#121212').mix(color('#FFFFFF'), 0.26).hex(),
+    gray6: color('#121212').mix(color('#FFFFFF'), 0.16).hex(),
     white: '#FFFFFF',
-    barStyle: 'dark-content',
+
+    customColor: '#FF00FF',
   },
 };
