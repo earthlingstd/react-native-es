@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './screens/Home';
 import Theme from './screens/Theme';
-import Buttons from './screens/Buttons';
+import * as Buttons from './screens/Buttons';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -15,11 +15,7 @@ function CommonNavigationBar(props) {
 
   const title =
     typeof options.headerTitle !== 'function' &&
-    options.headerTitle !== undefined
-      ? options.headerTitle
-      : options.title !== undefined
-      ? options.title
-      : scene.route.name;
+    (options.headerTitle || options.title || scene.route.name);
   return (
     <NavigationBar.Header statusBarHeight={insets.top}>
       {previous && (
@@ -42,7 +38,17 @@ const Navigation = () => {
           options={Home.navigationOptions}
         />
         <Stack.Screen name="Theme" component={Theme} />
-        <Stack.Screen name="Buttons" component={Buttons} />
+        <Stack.Screen name="Buttons" component={Buttons.List} />
+        <Stack.Screen
+          name="TextButton"
+          component={Buttons.TextButton}
+          options={{title: 'Button.Text'}}
+        />
+        <Stack.Screen
+          name="IconButton"
+          component={Buttons.IconButton}
+          options={{title: 'Button.Icon'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

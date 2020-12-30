@@ -19,7 +19,7 @@ import { TextProps } from './typings'
  */
 const Text: React.FC<TextProps> = props => {
   const { color: colors, fonts, typography } = useTheme<Theme.Color>()
-  const { color = 'text', style, weight = 'regular', ...rest } = props
+  const { color = 'text', style, weight = 'regular', children, ...rest } = props
   return (
     <RNText
       {...rest}
@@ -36,7 +36,7 @@ const Text: React.FC<TextProps> = props => {
         style,
       ]}
     >
-      {props.children}
+      {children}
     </RNText>
   )
 }

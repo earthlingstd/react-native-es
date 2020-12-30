@@ -9,6 +9,7 @@ export { default as Text } from './components/Typography/Text'
 // Components
 export { default as Button } from './components/Button'
 export { default as Container } from './components/Container'
+export { default as Icon } from './components/Icon'
 export { default as NavigationBar } from './components/NavigationBar'
 // Theme
 export { default as createTheme } from './theme/createTheme'

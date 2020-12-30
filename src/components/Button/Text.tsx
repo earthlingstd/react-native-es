@@ -76,6 +76,7 @@ const Button: React.FC<Props> = props => {
   const { color } = useTheme<Theme.Color>()
   const {
     color: buttonColor,
+    children,
     compact,
     disabled,
     mode,
@@ -131,26 +132,32 @@ const Button: React.FC<Props> = props => {
       buttonStyle: { backgroundColor, borderColor, borderWidth, borderRadius },
       textStyle: { color: textColor },
     }
-  }, [disabled, buttonColor, color.dark])
-
+  }, [disabled, buttonColor, color.dark, mode])
+  console.log(typeof children)
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[s.button, computedStyle.buttonStyle, style]}
       disabled={disabled}
     >
-      <Text
-        weight="medium"
-        style={[
-          s.label,
-          compact && s.compactLabel,
-          uppercase && s.uppercaseLabel,
-          computedStyle.textStyle,
-          labelStyle,
-        ]}
-      >
-        {props.children}
-      </Text>
+      {React.Children.map(children, c =>
+        typeof c === 'string' ? (
+          <Text
+            weight="medium"
+            style={[
+              s.label,
+              compact && s.compactLabel,
+              uppercase && s.uppercaseLabel,
+              computedStyle.textStyle,
+              labelStyle,
+            ]}
+          >
+            {c}
+          </Text>
+        ) : React.isValidElement(c) ? (
+          React.cloneElement(c, { color: computedStyle.textStyle.color })
+        ) : null,
+      )}
     </TouchableOpacity>
   )
 }
@@ -166,12 +173,14 @@ const s = StyleSheet.create({
     borderStyle: 'solid',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: 10,
   },
   label: {
     textAlign: 'center',
     letterSpacing: 0.5,
     marginVertical: 9,
-    marginHorizontal: 16,
+    marginHorizontal: 6,
   },
   compactLabel: {
     marginHorizontal: 8,

@@ -24,7 +24,7 @@ export type Color = {
 };
 
 export const colors: L.KV<Color> = {
-  dark: {
+  light: {
     id: 'light',
     name: 'Light',
     dark: false,
@@ -52,7 +52,7 @@ export const colors: L.KV<Color> = {
 
     customColor: '#FF00FF',
   },
-  light: {
+  dark: {
     id: 'dark',
     name: 'Dark',
     dark: true,

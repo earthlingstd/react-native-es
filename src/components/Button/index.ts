@@ -1,3 +1,4 @@
 import Text from './Text'
+import Icon from './Icon'
 
-export default { Text }
+export default { Text, Icon }
