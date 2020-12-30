@@ -11,10 +11,26 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {useTheme} from '../../theme';
 import icons from './icons';
 
-type Props = {};
+const modes = ['flat', 'outlined', 'contained'];
+
+type Props = {navigation: any};
 
 const IconButton: React.FC<Props> = (props) => {
   const {color} = useTheme();
+  const {navigation} = props;
+
+  const [mode, setMode] = React.useState(0);
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      title: 'Button.Icon',
+      headerRight: () => (
+        <Button.Text onPress={() => setMode((c) => (c + 1) % 3)}>
+          Change mode
+        </Button.Text>
+      ),
+    });
+  }, [navigation]);
 
   return (
     <Container safe>
@@ -25,7 +41,7 @@ const IconButton: React.FC<Props> = (props) => {
           color="gray4"
           weight="medium"
           style={{marginTop: 10, marginBottom: 5}}>
-          mode="flat"
+          mode="{modes[mode]}"
         </Subheading>
         <View
           style={{
@@ -35,66 +51,18 @@ const IconButton: React.FC<Props> = (props) => {
           }}>
           {Object.keys(icons).map((icon) => (
             <Button.Icon
-              key={`flat-${icon}`}
-              mode="flat"
+              key={`${icon}`}
+              mode={modes[mode]}
               icon={icon}
               size={24}
               style={{marginHorizontal: 4, marginVertical: 4}}
             />
           ))}
         </View>
-
-        {/* <Subheading
-          color="gray4"
-          weight="medium"
-          style={{marginTop: 10, marginBottom: 5}}>
-          mode="outlined"
-        </Subheading>
-        <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}>
-          {Object.keys(icons).map((icon) => (
-            <Button.Icon
-              key={`outlined-${icon}`}
-              mode="outlined"
-              icon={icon}
-              size={24}
-              style={{marginHorizontal: 4, marginVertical: 4}}
-            />
-          ))}
-        </View>
-
-        <Subheading
-          color="gray4"
-          weight="medium"
-          style={{marginTop: 10, marginBottom: 5}}>
-          mode="contained"
-        </Subheading>
-        <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}>
-          {Object.keys(icons).map((icon) => (
-            <Button.Icon
-              key={`contained-${icon}`}
-              mode="contained"
-              icon={icon}
-              size={24}
-              style={{marginHorizontal: 4, marginVertical: 4}}
-            />
-          ))}
-        </View> */}
       </ScrollView>
     </Container>
   );
 };
-
-IconButton.defaultProps = {};
 
 const s = StyleSheet.create({
   button: {

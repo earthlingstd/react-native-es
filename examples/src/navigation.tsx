@@ -22,6 +22,7 @@ function CommonNavigationBar(props) {
         <NavigationBar.Icon.Back onPress={() => navigation.goBack()} />
       )}
       <NavigationBar.Content title={title} />
+      {options.headerRight ? options.headerRight() : null}
     </NavigationBar.Header>
   );
 }

@@ -121,7 +121,14 @@ const Button: React.FC<Props> = props => {
     }
 
     return {
-      buttonStyle: { backgroundColor, borderColor, borderWidth, borderRadius },
+      buttonStyle: {
+        width: (size || 22) * 1.6,
+        height: (size || 22) * 1.6,
+        backgroundColor,
+        borderColor,
+        borderWidth,
+        borderRadius,
+      },
       color: textColor,
     }
   }, [disabled, iconColor, color.dark, mode])
@@ -144,8 +151,8 @@ Button.defaultProps = {
 
 const s = StyleSheet.create({
   button: {
-    minWidth: 30,
-    minHeight: 30,
+    // minWidth: 30,
+    // minHeight: 30,
     padding: 5,
     borderStyle: 'solid',
     alignItems: 'center',
