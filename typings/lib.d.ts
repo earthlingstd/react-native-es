@@ -21,10 +21,11 @@ declare namespace L {
   }
 
   export type Fonts = {
+    thin: Font
+    light: Font
     regular: Font
     medium: Font
-    light: Font
-    thin: Font
+    bold: Font
   }
 
   export type FeatherIcons =
@@ -314,4 +315,33 @@ declare namespace L {
     | 'zap-off'
     | 'zoom-in'
     | 'zoom-out'
+
+  export type AccessibilityTrait =
+    | 'none'
+    | 'button'
+    | 'link'
+    | 'header'
+    | 'search'
+    | 'image'
+    | 'selected'
+    | 'plays'
+    | 'key'
+    | 'text'
+    | 'summary'
+    | 'disabled'
+    | 'frequentUpdates'
+    | 'startsMedia'
+    | 'adjustable'
+    | 'allowsDirectInteraction'
+    | 'pageTurn'
+
+  export type TextProps = {
+    accessible?: boolean
+    accessibilityTraits?: AccessibilityTrait | AccessibilityTrait[]
+    align?: 'left' | 'center' | 'right'
+    color?: string | keyof Theme.Color
+    numberOfLines?: number
+    style?: StyleProp<TextStyle>
+    weight?: keyof L.Fonts
+  }
 }

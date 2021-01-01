@@ -68,6 +68,10 @@ const fontConfig = {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
       fontWeight: '500' as '500',
     },
+    bold: {
+      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
+      fontWeight: '700' as '700',
+    },
     light: {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
       fontWeight: '300' as '300',
@@ -86,6 +90,10 @@ const fontConfig = {
       fontFamily: 'System',
       fontWeight: '500' as '500',
     },
+    bold: {
+      fontFamily: 'System',
+      fontWeight: '700' as '700',
+    },
     light: {
       fontFamily: 'System',
       fontWeight: '300' as '300',
@@ -102,6 +110,10 @@ const fontConfig = {
     },
     medium: {
       fontFamily: 'sans-serif-medium',
+      fontWeight: 'normal' as 'normal',
+    },
+    bold: {
+      fontFamily: 'sans-serif-bold',
       fontWeight: 'normal' as 'normal',
     },
     light: {

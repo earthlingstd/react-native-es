@@ -8,7 +8,6 @@
 import React from 'react'
 import { Text as RNText } from 'react-native'
 import useTheme from '../../theme/useTheme'
-import { TextProps } from './typings'
 
 // @component-group Typography
 
@@ -17,9 +16,9 @@ import { TextProps } from './typings'
  *
  * @extends Text props https://reactnative.dev/docs/text#props
  */
-const Subheading: React.FC<TextProps> = props => {
+const Subheading: React.FC<L.TextProps> = props => {
   const { color: colors, fonts, typography } = useTheme<Theme.Color>()
-  const { color = 'text', style, weight = 'regular', ...rest } = props
+  const { color = 'text', style, weight = 'regular', align = 'left', children, ...rest } = props
   return (
     <RNText
       {...rest}
@@ -31,12 +30,12 @@ const Subheading: React.FC<TextProps> = props => {
           ...fonts[weight],
           fontSize: typography.subhead,
           color: colors[color],
-          textAlign: 'left',
+          textAlign: align,
         },
         style,
       ]}
     >
-      {props.children}
+      {children}
     </RNText>
   )
 }

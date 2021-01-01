@@ -1,10 +1,11 @@
 // Typography
-// export { default as Caption } from './components/Typography/Caption';
-// export { default as Headline } from './components/Typography/Headline';
-// export { default as Paragraph } from './components/Typography/Paragraph';
+export { default as Title } from './components/Typography/Title'
+export { default as H1 } from './components/Typography/H1'
+export { default as H2 } from './components/Typography/H2'
+export { default as H3 } from './components/Typography/H3'
 export { default as Subheading } from './components/Typography/Subheading'
-// export { default as Title } from './components/Typography/Title';
 export { default as Text } from './components/Typography/Text'
+export { default as Footnote } from './components/Typography/Footnote'
 
 // Components
 export { default as Button } from './components/Button'

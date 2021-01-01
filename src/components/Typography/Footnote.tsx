@@ -1,5 +1,5 @@
 /**
- * Text
+ * Footnote
  *
  * @format
  *
@@ -12,11 +12,11 @@ import useTheme from '../../theme/useTheme'
 // @component-group Typography
 
 /**
- * Text component which follows styles from the theme.
+ * Subheading component which follows styles from the theme.
  *
  * @extends Text props https://reactnative.dev/docs/text#props
  */
-const Text: React.FC<L.TextProps> = props => {
+const Footnote: React.FC<L.TextProps> = props => {
   const { color: colors, fonts, typography } = useTheme<Theme.Color>()
   const { color = 'text', style, weight = 'regular', align = 'left', children, ...rest } = props
   return (
@@ -28,7 +28,7 @@ const Text: React.FC<L.TextProps> = props => {
       style={[
         {
           ...fonts[weight],
-          fontSize: typography.body,
+          fontSize: typography.footnote,
           color: colors[color],
           textAlign: align,
         },
@@ -40,6 +40,4 @@ const Text: React.FC<L.TextProps> = props => {
   )
 }
 
-Text.defaultProps = {}
-
-export default Text
+export default Footnote
