@@ -68,6 +68,10 @@ const fontConfig = {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
       fontWeight: '500' as '500',
     },
+    semiBold: {
+      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
+      fontWeight: '600' as '600',
+    },
     bold: {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
       fontWeight: '700' as '700',
@@ -89,6 +93,10 @@ const fontConfig = {
     medium: {
       fontFamily: 'System',
       fontWeight: '500' as '500',
+    },
+    semiBold: {
+      fontFamily: 'System',
+      fontWeight: '600' as '600',
     },
     bold: {
       fontFamily: 'System',
@@ -112,8 +120,12 @@ const fontConfig = {
       fontFamily: 'sans-serif-medium',
       fontWeight: 'normal' as 'normal',
     },
-    bold: {
+    semiBold: {
       fontFamily: 'sans-serif-bold',
+      fontWeight: 'normal' as 'normal',
+    },
+    bold: {
+      fontFamily: 'sans-serif-semi-bold',
       fontWeight: 'normal' as 'normal',
     },
     light: {

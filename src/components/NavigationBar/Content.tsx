@@ -54,7 +54,7 @@ const Content: React.FC<Props> = props => {
         accessibilityTraits="header"
         // @ts-ignore Type '"heading"' is not assignable to type ...
         accessibilityRole={Platform.OS === 'web' ? 'heading' : 'header'}
-        style={[props.largeTitle ? s.title__large : s.title, { color: color.headerText }]}
+        style={[largeTitle ? s.title__large : s.title, { color: color.headerText }]}
       >
         {props.title}
       </Text>

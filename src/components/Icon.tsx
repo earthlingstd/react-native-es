@@ -11,7 +11,7 @@ import { Image, ImageStyle, StyleProp } from 'react-native'
 import useTheme from '../theme/useTheme'
 
 interface IProps {
-  source: Object
+  source: L.IconSource
   size?: number
   color?: string | keyof Theme.Color
   style?: StyleProp<ImageStyle>
@@ -29,7 +29,12 @@ const Icon: React.FC<IProps> = props => {
 
   if (typeof props.source === 'string') {
     return (
-      <FeatherIcon name={props.source || 'check'} size={props.size || 20} color={iconColor()} style={props.style} />
+      <FeatherIcon
+        name={props.source || 'check'}
+        size={props.size || 20}
+        color={iconColor()}
+        style={props.style}
+      />
     )
   }
   return (

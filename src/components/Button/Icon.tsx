@@ -6,13 +6,7 @@
  */
 
 import React from 'react'
-import {
-  ImageSourcePropType,
-  StyleProp,
-  StyleSheet,
-  TouchableOpacity,
-  ViewStyle,
-} from 'react-native'
+import { StyleProp, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native'
 import cc from 'color'
 
 import useTheme from '../../theme/useTheme'
@@ -33,7 +27,7 @@ type Props = {
   /**
    * Icon to display.
    */
-  icon: string | L.FeatherIcons | ImageSourcePropType
+  icon: L.IconSource
   /**
    * Color of the icon.
    */

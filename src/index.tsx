@@ -8,6 +8,7 @@ export { default as Text } from './components/Typography/Text'
 export { default as Footnote } from './components/Typography/Footnote'
 
 // Components
+export { default as Avatar } from './components/Avatar'
 export { default as Button } from './components/Button'
 export { default as Container } from './components/Container'
 export { default as Icon } from './components/Icon'
