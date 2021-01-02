@@ -1,6 +1,6 @@
 {
   "name": "@earthling/react-native-es",
-  "version": "0.0.17",
+  "version": "0.0.21",
   "description": "ES themed components",
   "source": "src/index.tsx",
   "main": "lib/module/index.js",

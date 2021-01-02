@@ -19,6 +19,7 @@ interface IProps {
 }
 
 const Icon: React.FC<IProps> = props => {
+  const { size = 22 } = props
   const { color } = useTheme<Theme.Color>()
 
   const iconColor = () => {
@@ -31,7 +32,7 @@ const Icon: React.FC<IProps> = props => {
     return (
       <FeatherIcon
         name={props.source || 'check'}
-        size={props.size || 20}
+        size={size}
         color={iconColor()}
         style={props.style}
       />
@@ -43,8 +44,8 @@ const Icon: React.FC<IProps> = props => {
       style={[
         props.style,
         {
-          width: props.size,
-          height: props.size,
+          width: size,
+          height: size,
           tintColor: iconColor(),
         },
       ]}

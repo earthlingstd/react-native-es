@@ -83,17 +83,17 @@ const s = StyleSheet.create({
   }),
   title__large: Platform.select({
     ios: {
-      fontSize: 22,
-      fontWeight: '600',
+      fontSize: 24,
+      fontWeight: '700',
     },
     android: {
-      fontSize: 23,
-      fontFamily: 'sans-serif-medium',
+      fontSize: 24,
+      fontFamily: 'sans-serif-bold',
       fontWeight: 'normal',
     },
     default: {
-      fontSize: 21,
-      fontWeight: '500',
+      fontSize: 24,
+      fontWeight: '700',
     },
   }),
 })
