@@ -133,11 +133,11 @@ const Button: React.FC<Props> = props => {
       textStyle: { color: textColor },
     }
   }, [disabled, buttonColor, color.dark, mode])
-  console.log(typeof children)
+
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[s.button, computedStyle.buttonStyle, style]}
+      style={[s.button, computedStyle.buttonStyle, compact && s.compactButton, style]}
       disabled={disabled}
     >
       {React.Children.map(children, c =>
@@ -176,6 +176,10 @@ const s = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 10,
   },
+  compactButton: {
+    minWidth: 0,
+    minHeight: 0,
+  },
   label: {
     textAlign: 'center',
     letterSpacing: 0.5,
@@ -183,7 +187,8 @@ const s = StyleSheet.create({
     marginHorizontal: 6,
   },
   compactLabel: {
-    marginHorizontal: 8,
+    marginHorizontal: 3,
+    marginVertical: 3,
   },
   uppercaseLabel: {
     textTransform: 'uppercase',

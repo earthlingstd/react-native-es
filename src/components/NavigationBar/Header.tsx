@@ -76,7 +76,9 @@ const Header: React.FC<Props> = props => {
   const bgColor = backgroundColor ? backgroundColor : color.header
 
   return (
-    <Wrapper style={[s.wrapper, { paddingTop: statusBarHeight, backgroundColor: bgColor }, props.style]}>
+    <Wrapper
+      style={[s.wrapper, { paddingTop: statusBarHeight, backgroundColor: bgColor }, props.style]}
+    >
       <View style={{ height: Metrics.header.height(), flexDirection: 'row', alignItems: 'center' }}>
         {React.Children.toArray(children)
           .filter(child => child != null && typeof child !== 'boolean')
@@ -113,7 +115,7 @@ const Header: React.FC<Props> = props => {
 
 const s = StyleSheet.create({
   wrapper: {
-    paddingHorizontal: Metrics.layout.insets.horizontal - 5,
+    paddingHorizontal: Metrics.layout.insets.horizontal - 7,
   },
 })
 

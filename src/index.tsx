@@ -9,8 +9,10 @@ export { default as Footnote } from './components/Typography/Footnote'
 
 // Components
 export { default as Avatar } from './components/Avatar'
+export { default as Banner } from './components/Banner'
 export { default as Button } from './components/Button'
 export { default as Container } from './components/Container'
+export { default as Surface } from './components/Surface'
 export { default as Icon } from './components/Icon'
 export { default as NavigationBar } from './components/NavigationBar'
 // Theme
