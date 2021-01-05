@@ -35,7 +35,7 @@ const Avatar: React.FC<Props> = (props) => {
   return (
     <TouchableOpacity style={style} disabled={disabled} onPress={onPress}>
       <FastImage
-        source={typeof photoURL === "string" ? { uri: photoURL } : photoURL}
+        source={typeof photoURL === "string" ? photoURL : { uri: photoURL }}
         style={[
           s.image,
           { width: size, height: size, borderRadius: circle ? size * 0.5 : 0 },
