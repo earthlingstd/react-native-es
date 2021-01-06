@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './screens/Home';
 import Theme from './screens/Theme';
+import Chip from './screens/Chip';
 import * as Buttons from './screens/Buttons';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -39,6 +40,7 @@ const Navigation = () => {
           options={Home.navigationOptions}
         />
         <Stack.Screen name="Theme" component={Theme} />
+        <Stack.Screen name="Chip" component={Chip} />
         <Stack.Screen name="Buttons" component={Buttons.List} />
         <Stack.Screen
           name="TextButton"

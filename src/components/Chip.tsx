@@ -6,7 +6,12 @@
  */
 
 import React from 'react'
-import { StyleProp, View, ViewStyle } from 'react-native'
+import { StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native'
+import cc from 'color'
+
+import useTheme from '../theme/useTheme'
+import Text from './Typography/Text'
+import Icon from './Icon'
 
 type Props = {
   /**
@@ -59,12 +64,79 @@ type Props = {
 }
 
 const Chip: React.FC<Props> = props => {
-  const { style } = props
-  return <View style={style}></View>
+  const { color } = useTheme<Theme.Color>()
+  const { icon, style, selected, textStyle, children, disabled } = props
+
+  const computedStyle = React.useMemo(() => {
+    let backgroundColor = color.gray6
+    let textColor = color.text
+
+    if (selected) {
+      backgroundColor = color.primary
+      textColor = cc(backgroundColor ? 'white' : 'black').hex()
+    }
+
+    return {
+      container: {
+        backgroundColor,
+        opacity: disabled ? 0.4 : 1,
+      },
+      textColor,
+    }
+  }, [disabled, selected])
+
+  return (
+    <TouchableOpacity
+      disabled={disabled}
+      style={[s.container, { backgroundColor: color.gray6 }, computedStyle.container, style]}
+    >
+      <View style={s.content}>
+        {icon && (
+          <Icon
+            source={icon}
+            color={computedStyle.textColor}
+            size={18}
+            style={{ marginRight: 6, marginLeft: -3 }}
+          />
+        )}
+        <Text
+          weight="medium"
+          numberOfLines={1}
+          style={[s.text, textStyle]}
+          color={computedStyle.textColor}
+        >
+          {children}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  )
 }
 
 Chip.defaultProps = {}
 
-// const s = StyleSheet.create({})
+const s = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 3,
+    minHeight: 38,
+  },
+  content: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 4,
+    marginRight: 4,
+    minWidth: 40,
+  },
+  text: {
+    minHeight: 24,
+    lineHeight: 24,
+    textAlignVertical: 'center',
+    marginVertical: 4,
+  },
+})
 
 export default Chip

@@ -23,6 +23,9 @@ const HomeScreen: React.FC<Props> = (props) => {
         <Button.Text onPress={() => props.navigation.navigate('Theme')}>
           Theme
         </Button.Text>
+        <Button.Text onPress={() => props.navigation.navigate('Chip')}>
+          Chip
+        </Button.Text>
         {/* <TouchableOpacity
           style={{
             height: 44,

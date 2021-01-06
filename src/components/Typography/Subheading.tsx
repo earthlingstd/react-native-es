@@ -19,6 +19,8 @@ import useTheme from '../../theme/useTheme'
 const Subheading: React.FC<L.TextProps> = props => {
   const { color: colors, fonts, typography } = useTheme<Theme.Color>()
   const { color = 'text', style, weight = 'regular', align = 'left', children, ...rest } = props
+  const colorStr = color.includes('#') ? color : colors[color]
+
   return (
     <RNText
       {...rest}
@@ -29,7 +31,7 @@ const Subheading: React.FC<L.TextProps> = props => {
         {
           ...fonts[weight],
           fontSize: typography.subhead,
-          color: colors[color],
+          color: colorStr,
           textAlign: align,
         },
         style,

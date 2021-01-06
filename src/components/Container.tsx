@@ -41,7 +41,10 @@ const Container: React.FC<Props> = props => {
 
   if (props.safe)
     return (
-      <SafeAreaView style={{ backgroundColor: color.background, flex: 1 }} forceInset={props.forceInset}>
+      <SafeAreaView
+        style={{ backgroundColor: color.background, flex: 1 }}
+        forceInset={props.forceInset}
+      >
         {renderContent()}
       </SafeAreaView>
     )
