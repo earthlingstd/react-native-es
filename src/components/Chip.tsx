@@ -65,15 +65,17 @@ type Props = {
 
 const Chip: React.FC<Props> = props => {
   const { color } = useTheme<Theme.Color>()
-  const { icon, style, selected, textStyle, children, disabled } = props
+  const { onPress, icon, style, selected, selectedColor, textStyle, children, disabled } = props
 
   const computedStyle = React.useMemo(() => {
     let backgroundColor = color.gray6
-    let textColor = color.text
+    let textColor = color.gray3
 
     if (selected) {
-      backgroundColor = color.primary
+      backgroundColor = `${selectedColor || color.primary}dd`
       textColor = cc(backgroundColor ? 'white' : 'black').hex()
+    } else {
+      backgroundColor = `${color.text}11`
     }
 
     return {
@@ -87,11 +89,12 @@ const Chip: React.FC<Props> = props => {
 
   return (
     <TouchableOpacity
+      onPress={onPress}
       disabled={disabled}
-      style={[s.container, { backgroundColor: color.gray6 }, computedStyle.container, style]}
+      style={[s.container, computedStyle.container, style]}
     >
       <View style={s.content}>
-        {icon && (
+        {!!icon && (
           <Icon
             source={icon}
             color={computedStyle.textColor}
@@ -100,7 +103,7 @@ const Chip: React.FC<Props> = props => {
           />
         )}
         <Text
-          weight="medium"
+          weight="semiBold"
           numberOfLines={1}
           style={[s.text, textStyle]}
           color={computedStyle.textColor}

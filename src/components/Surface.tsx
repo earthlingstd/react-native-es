@@ -7,6 +7,7 @@
 
 import React from 'react'
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
+import shadow from '../styles/shadow'
 import overlay from '../styles/elevation'
 import useTheme from '../theme/useTheme'
 
@@ -48,6 +49,7 @@ const Surface: React.FC<Props> = props => {
           borderWidth: bordered ? StyleSheet.hairlineWidth : 0,
           borderColor: borderColor || `${color.text}40`,
           backgroundColor: propsColor || overlay(color.background, elevation),
+          ...shadow(elevation),
         },
         style,
       ]}

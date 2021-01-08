@@ -14,6 +14,7 @@ export { default as Button } from './components/Button'
 export { default as Chip } from './components/Chip'
 export { default as Container } from './components/Container'
 export { default as Surface } from './components/Surface'
+export { default as TextField } from './components/TextField'
 export { default as Icon } from './components/Icon'
 export { default as NavigationBar } from './components/NavigationBar'
 // Theme

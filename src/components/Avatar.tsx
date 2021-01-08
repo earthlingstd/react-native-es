@@ -11,6 +11,7 @@ import FastImage from 'react-native-fast-image'
 
 type Props = {
   disabled?: boolean
+  backgroundColor?: string
   onPress?: () => void
   photoURL: any
   size?: number
@@ -19,12 +20,24 @@ type Props = {
 }
 
 const Avatar: React.FC<Props> = props => {
-  const { circle = true, disabled, photoURL, onPress, size = 30, style } = props
+  const {
+    circle = true,
+    disabled,
+    photoURL,
+    onPress,
+    size = 30,
+    style,
+    backgroundColor = 'transparent',
+  } = props
   return (
     <TouchableOpacity style={style} disabled={disabled} onPress={onPress}>
       <FastImage
         source={{ uri: photoURL }}
-        style={[s.image, { width: size, height: size, borderRadius: circle ? size * 0.5 : 0 }]}
+        style={[
+          s.image,
+          { backgroundColor },
+          { width: size, height: size, borderRadius: circle ? size * 0.5 : 0 },
+        ]}
         resizeMode="cover"
       />
     </TouchableOpacity>

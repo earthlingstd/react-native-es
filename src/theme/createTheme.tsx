@@ -7,6 +7,7 @@ import { StatusBar } from 'react-native'
 
 import * as DefaultTheme from './ThemeConfig'
 import useTheme from './useTheme'
+import withTheme from './withTheme'
 
 interface CreateThemeParams<T> {
   colors?: L.KV<Theme.Color & T>
@@ -65,7 +66,7 @@ function createTheme<T>(params: CreateThemeParams<T>) {
     return useTheme<T>()
   }
 
-  return { ThemeContext, ThemeProvider, useTheme: ut }
+  return { ThemeContext, ThemeProvider, useTheme: ut, withTheme }
 }
 
 export default createTheme

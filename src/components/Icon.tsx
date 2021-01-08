@@ -15,6 +15,7 @@ interface IProps {
   size?: number
   color?: string | keyof Theme.Color
   style?: StyleProp<ImageStyle>
+  disableTint?: boolean
   resizeMode?: 'contain' | 'cover'
 }
 
@@ -43,11 +44,16 @@ const Icon: React.FC<IProps> = props => {
       source={props.source}
       style={[
         props.style,
-        {
-          width: size,
-          height: size,
-          tintColor: iconColor(),
-        },
+        props.disableTint
+          ? {
+              width: size,
+              height: size,
+            }
+          : {
+              width: size,
+              height: size,
+              tintColor: iconColor(),
+            },
       ]}
       resizeMode={props.resizeMode || 'contain'}
     />

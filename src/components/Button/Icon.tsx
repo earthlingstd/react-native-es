@@ -32,6 +32,8 @@ type Props = {
    * Color of the icon.
    */
   color?: string
+
+  disableTintColor?: boolean
   /**
    * Size of the icon.
    */
@@ -133,7 +135,12 @@ const Button: React.FC<Props> = props => {
       style={[s.button, computedStyle.buttonStyle, style]}
       disabled={disabled}
     >
-      <Icon source={icon} color={computedStyle.color} size={size} />
+      <Icon
+        source={icon}
+        disableTint={props.disableTintColor}
+        color={computedStyle.color}
+        size={size}
+      />
     </TouchableOpacity>
   )
 }
