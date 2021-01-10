@@ -1,4 +1,4 @@
-import { Platform } from "react-native";
+import { Platform } from 'react-native'
 
 export const typographies: L.KV<Theme.Typography> = {
   normal: {
@@ -28,115 +28,115 @@ export const typographies: L.KV<Theme.Typography> = {
     h1: 23,
     largeTitle: 29,
   },
-};
+}
 
 export const colors: L.KV<Theme.Color> = {
   light: {
-    id: "light",
+    id: 'light',
     dark: false,
-    name: "Light",
+    name: 'Light',
 
-    primary: "#EF9517",
-    secondary: "#303D4F",
+    primary: '#EF9517',
+    secondary: '#303D4F',
     // Header
-    header: "#FFF", // 1C6786 394860
-    headerText: "#121417",
+    header: '#FFF', // 1C6786 394860
+    headerText: '#121417',
 
-    background: "#FFFFFF",
-    separator: "#F4F8FB",
-    middle: "#FFFFFF",
-    text: "#202328",
-    shadowColor: "#3E3E3E",
-    gray: "#2D3239",
-    gray2: "#48505B",
-    gray3: "#636E7D",
-    gray4: "#7E8C9F",
-    gray5: "#99AAC1",
-    gray6: "#f2f2f7",
-    white: "#FFFFFF",
-    barStyle: "dark-content",
+    background: '#FFFFFF',
+    separator: '#F4F8FB',
+    middle: '#FFFFFF',
+    text: '#202328',
+    shadowColor: '#3E3E3E',
+    gray: '#2D3239',
+    gray2: '#48505B',
+    gray3: '#636E7D',
+    gray4: '#7E8C9F',
+    gray5: '#99AAC1',
+    gray6: '#f2f2f7',
+    white: '#FFFFFF',
+    barStyle: 'dark-content',
   },
-};
+}
 
 const fontConfig = {
   web: {
     regular: {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: "400" as "400",
+      fontWeight: '400' as '400',
     },
     medium: {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: "500" as "500",
+      fontWeight: '500' as '500',
     },
     semiBold: {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: "600" as "600",
+      fontWeight: '600' as '600',
     },
     bold: {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: "700" as "700",
+      fontWeight: '700' as '700',
     },
     light: {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: "300" as "300",
+      fontWeight: '300' as '300',
     },
     thin: {
       fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: "100" as "100",
+      fontWeight: '100' as '100',
     },
   },
   ios: {
     regular: {
-      fontFamily: "System",
-      fontWeight: "400" as "400",
+      fontFamily: 'System',
+      fontWeight: '400' as '400',
     },
     medium: {
-      fontFamily: "System",
-      fontWeight: "500" as "500",
+      fontFamily: 'System',
+      fontWeight: '500' as '500',
     },
     semiBold: {
-      fontFamily: "System",
-      fontWeight: "600" as "600",
+      fontFamily: 'System',
+      fontWeight: '600' as '600',
     },
     bold: {
-      fontFamily: "System",
-      fontWeight: "700" as "700",
+      fontFamily: 'System',
+      fontWeight: '700' as '700',
     },
     light: {
-      fontFamily: "System",
-      fontWeight: "300" as "300",
+      fontFamily: 'System',
+      fontWeight: '300' as '300',
     },
     thin: {
-      fontFamily: "System",
-      fontWeight: "100" as "100",
+      fontFamily: 'System',
+      fontWeight: '100' as '100',
     },
   },
   android: {
     regular: {
-      fontFamily: "sans-serif",
-      fontWeight: "normal" as "normal",
+      fontFamily: 'sans-serif',
+      fontWeight: 'normal' as 'normal',
     },
     medium: {
-      fontFamily: "sans-serif-medium",
-      fontWeight: "normal" as "normal",
+      fontFamily: 'sans-serif-condensed',
+      fontWeight: 'normal' as 'normal',
     },
     semiBold: {
-      fontFamily: "sans-serif-semi-bold",
-      fontWeight: "normal" as "normal",
+      fontFamily: 'sans-serif-medium',
+      fontWeight: 'normal' as 'normal',
     },
     bold: {
-      fontFamily: "sans-serif-bold",
-      fontWeight: "normal" as "normal",
+      fontFamily: 'sans-serif-black',
+      fontWeight: 'normal' as 'normal',
     },
     light: {
-      fontFamily: "sans-serif-light",
-      fontWeight: "normal" as "normal",
+      fontFamily: 'sans-serif-light',
+      fontWeight: 'normal' as 'normal',
     },
     thin: {
-      fontFamily: "sans-serif-thin",
-      fontWeight: "normal" as "normal",
+      fontFamily: 'sans-serif-thin',
+      fontWeight: 'normal' as 'normal',
     },
   },
-};
+}
 
-export const fonts = Platform.select({ ...fontConfig }) as L.Fonts;
+export const fonts = Platform.select({ ...fontConfig }) as L.Fonts
