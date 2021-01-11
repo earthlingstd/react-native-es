@@ -24,6 +24,7 @@ interface Props {
   editable?: boolean
   style?: StyleProp<ViewStyle>
   label?: string
+  value?: string
   defaultValue?: string
   maxLength?: number
   showCharacterCounter?: boolean
@@ -43,6 +44,7 @@ const TextField: React.FC<Props> = props => {
   const { color, typography } = useTheme()
   const {
     editable = true,
+    value,
     defaultValue,
     label,
     keyboardType,
@@ -120,6 +122,7 @@ const TextField: React.FC<Props> = props => {
           placeholderTextColor={color.gray4}
           clearButtonMode="never"
           multiline={multiline}
+          value={value}
           numberOfLines={numberOfLines || 1}
           onChangeText={handleOnChangeText}
           style={[

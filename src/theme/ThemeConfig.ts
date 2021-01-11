@@ -139,4 +139,5 @@ const fontConfig = {
   },
 }
 
-export const fonts = Platform.select({ ...fontConfig }) as L.Fonts
+const newLocal = { ...fontConfig }
+export const fonts = Platform.select<L.Fonts>(newLocal)

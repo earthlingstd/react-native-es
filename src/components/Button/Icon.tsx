@@ -72,7 +72,16 @@ type Props = {
 
 const Button: React.FC<Props> = props => {
   const { color } = useTheme<Theme.Color>()
-  const { icon, color: iconColor, size, disabled, mode, onPress, style } = props
+  const {
+    icon,
+    color: iconColor,
+    size,
+    disabled,
+    mode,
+    onPress,
+    style,
+    disableTintColor = false,
+  } = props
 
   // Text style
   const computedStyle = React.useMemo(() => {
@@ -135,12 +144,7 @@ const Button: React.FC<Props> = props => {
       style={[s.button, computedStyle.buttonStyle, style]}
       disabled={disabled}
     >
-      <Icon
-        source={icon}
-        disableTint={props.disableTintColor}
-        color={computedStyle.color}
-        size={size}
-      />
+      <Icon source={icon} disableTint={disableTintColor} color={computedStyle.color} size={size} />
     </TouchableOpacity>
   )
 }

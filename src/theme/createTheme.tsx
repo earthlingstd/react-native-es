@@ -30,7 +30,7 @@ function createTheme<T>(params: CreateThemeParams<T>) {
   const {
     colors = DefaultTheme.colors as L.KV<Theme.Color & T>,
     typographies = DefaultTheme.typographies,
-    fonts = DefaultTheme.fonts,
+    fonts = DefaultTheme.fonts!,
     defaultColor = 'light',
     defaultTypography = 'normal',
   } = params
