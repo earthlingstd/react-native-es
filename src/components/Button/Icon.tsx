@@ -103,14 +103,14 @@ const Button: React.FC<Props> = props => {
 
     // Calculate textColor
     if (disabled) {
-      textColor = cc(isDark ? 'white' : 'black')
+      textColor = cc(isDark ? '#FFFFFF' : '#000000')
         .alpha(0.32)
         .rgb()
         .string()
     } else {
       if (mode === 'contained') {
         let lightText = backgroundColor === 'transparent' ? isDark : !cc(backgroundColor).isLight()
-        textColor = lightText ? 'white' : 'black'
+        textColor = lightText ? '#FFFFFF' : '#000000'
       } else {
         textColor = iconColor || color.primary
       }

@@ -175,21 +175,19 @@ const s = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     paddingHorizontal: 10,
+    paddingVertical: 9,
   },
   compactButton: {
     minWidth: 0,
     minHeight: 0,
+    paddingHorizontal: 3,
+    paddingVertical: 3,
   },
   label: {
     textAlign: 'center',
     letterSpacing: 0.5,
-    marginVertical: 9,
-    marginHorizontal: 6,
   },
-  compactLabel: {
-    marginHorizontal: 3,
-    marginVertical: 3,
-  },
+  compactLabel: {},
   uppercaseLabel: {
     textTransform: 'uppercase',
   },

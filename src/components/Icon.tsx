@@ -20,13 +20,13 @@ interface IProps {
 }
 
 const Icon: React.FC<IProps> = props => {
-  const { size = 22, disableTint = false } = props
+  const { size = 22 } = props
   const { color } = useTheme<Theme.Color>()
 
   const iconColor = () => {
     if (!props.color) return undefined
     if (props.color?.includes('#')) return props.color
-    return color[props.color || 'primary']
+    return color[props.color || 'secondary']
   }
 
   if (typeof props.source === 'string') {
@@ -43,7 +43,7 @@ const Icon: React.FC<IProps> = props => {
     <Image
       source={props.source}
       style={[
-        disableTint
+        props.disableTint
           ? {
               width: size,
               height: size,
@@ -58,10 +58,6 @@ const Icon: React.FC<IProps> = props => {
       resizeMode={props.resizeMode || 'contain'}
     />
   )
-}
-
-Icon.defaultProps = {
-  size: 20,
 }
 
 export default Icon
