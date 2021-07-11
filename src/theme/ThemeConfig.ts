@@ -113,27 +113,27 @@ const fontConfig = {
   },
   android: {
     regular: {
-      fontFamily: 'sans-serif',
+      fontFamily: 'Raleway-Regular',
       fontWeight: 'normal' as 'normal',
     },
     medium: {
-      fontFamily: 'sans-serif-condensed',
+      fontFamily: 'Raleway-Medium',
       fontWeight: 'normal' as 'normal',
     },
     semiBold: {
-      fontFamily: 'sans-serif-medium',
+      fontFamily: 'Raleway-SemiBold',
       fontWeight: 'normal' as 'normal',
     },
     bold: {
-      fontFamily: 'sans-serif-black',
+      fontFamily: 'Raleway-Bold',
       fontWeight: 'normal' as 'normal',
     },
     light: {
-      fontFamily: 'sans-serif-light',
+      fontFamily: 'Raleway-Light',
       fontWeight: 'normal' as 'normal',
     },
     thin: {
-      fontFamily: 'sans-serif-thin',
+      fontFamily: 'Raleway-Thin',
       fontWeight: 'normal' as 'normal',
     },
   },

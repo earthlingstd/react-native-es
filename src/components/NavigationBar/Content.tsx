@@ -54,6 +54,7 @@ const Content: React.FC<Props> = props => {
         accessibilityTraits="header"
         // @ts-ignore Type '"heading"' is not assignable to type ...
         accessibilityRole={Platform.OS === 'web' ? 'heading' : 'header'}
+        weight={largeTitle ? 'bold' : 'medium'}
         style={[largeTitle ? s.title__large : s.title, { color: color.headerText }]}
       >
         {props.title}
@@ -69,33 +70,17 @@ const s = StyleSheet.create({
   title: Platform.select({
     ios: {
       fontSize: 17,
-      fontWeight: '600',
     },
     android: {
       fontSize: 20,
-      fontFamily: 'sans-serif-medium',
-      fontWeight: 'normal',
     },
     default: {
       fontSize: 18,
-      fontWeight: '500',
     },
   }),
-  title__large: Platform.select({
-    ios: {
-      fontSize: 24,
-      fontWeight: '700',
-    },
-    android: {
-      fontSize: 24,
-      fontFamily: 'sans-serif-bold',
-      fontWeight: 'normal',
-    },
-    default: {
-      fontSize: 24,
-      fontWeight: '700',
-    },
-  }),
+  title__large: {
+    fontSize: 24,
+  },
 })
 
 export default Content

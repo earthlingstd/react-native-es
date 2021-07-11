@@ -35,6 +35,7 @@ const Icon: React.FC<IProps> = props => {
         name={props.source || 'check'}
         size={size}
         color={iconColor()}
+        //@ts-ignore
         style={props.style}
       />
     )
