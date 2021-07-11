@@ -81,6 +81,7 @@ const Button: React.FC<Props> = props => {
     disabled,
     mode,
     labelStyle,
+    loading,
     onPress,
     style,
     uppercase,
@@ -129,16 +130,22 @@ const Button: React.FC<Props> = props => {
     }
 
     return {
-      buttonStyle: { backgroundColor, borderColor, borderWidth, borderRadius },
+      buttonStyle: {
+        backgroundColor,
+        borderColor,
+        borderWidth,
+        borderRadius,
+        opacity: loading ? 0.5 : 1,
+      },
       textStyle: { color: textColor },
     }
-  }, [disabled, buttonColor, color.dark, mode])
+  }, [disabled, buttonColor, color.dark, mode, loading])
 
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[s.button, computedStyle.buttonStyle, compact && s.compactButton, style]}
-      disabled={disabled}
+      disabled={disabled || loading}
     >
       {React.Children.map(children, c =>
         typeof c === 'string' ? (

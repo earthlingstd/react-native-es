@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
-import SafeAreaView from 'react-native-safe-area-view'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import Metrics from '../../theme/Metrics'
 import useTheme from '../../theme/useTheme'
 

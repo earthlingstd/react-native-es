@@ -28,10 +28,10 @@ type Props = {
    * Icon to display for the `Chip`. Both icon and avatar cannot be specified.
    */
   icon?: L.IconSource
-  /**
-   * Avatar to display for the `Chip`. Both icon and avatar cannot be specified.
-   */
-  avatar?: React.ReactNode
+
+  iconColor?: string
+
+  iconSize?: number
   /**
    * Chip background color
    */
@@ -51,7 +51,7 @@ type Props = {
   /**
    * Function to execute on press.
    */
-  onPress?: () => void
+  onPress?: (selected: boolean, data?: any) => void
   /**
    * Function to execute on close button press. The close button appears only when this prop is specified.
    */
@@ -61,11 +61,23 @@ type Props = {
    */
   textStyle?: any
   style?: StyleProp<ViewStyle>
+  data?: any
 }
 
 const Chip: React.FC<Props> = props => {
   const { color } = useTheme<Theme.Color>()
-  const { onPress, icon, style, selected, selectedColor, textStyle, children, disabled } = props
+  const {
+    onPress,
+    icon,
+    iconColor,
+    iconSize = 18,
+    style,
+    selected = false,
+    selectedColor,
+    textStyle,
+    children,
+    disabled,
+  } = props
 
   const computedStyle = React.useMemo(() => {
     let backgroundColor = color.gray6
@@ -87,9 +99,13 @@ const Chip: React.FC<Props> = props => {
     }
   }, [disabled, selected])
 
+  const handlePress = () => {
+    if (onPress) onPress(selected, props.data)
+  }
+
   return (
     <TouchableOpacity
-      onPress={onPress}
+      onPress={handlePress}
       disabled={disabled}
       style={[s.container, computedStyle.container, style]}
     >
@@ -97,8 +113,8 @@ const Chip: React.FC<Props> = props => {
         {!!icon && (
           <Icon
             source={icon}
-            color={computedStyle.textColor}
-            size={18}
+            color={iconColor || computedStyle.textColor}
+            size={iconSize}
             style={{ marginRight: 6, marginLeft: -3 }}
           />
         )}
@@ -142,4 +158,4 @@ const s = StyleSheet.create({
   },
 })
 
-export default Chip
+export default React.memo(Chip, (p, n) => p.selected === n.selected && p.disabled === n.disabled)

@@ -257,6 +257,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 5,
+    marginHorizontal: 3,
     marginBottom: 12,
   },
 })

@@ -20,7 +20,12 @@ type Props = {
 export const Back: React.FC<Props> = props => {
   const { color } = useTheme<Theme.Color>()
   return (
-    <TouchableOpacity onPress={props.onPress} style={props.style}>
+    <TouchableOpacity
+      onPress={props.onPress}
+      hitSlop={{ top: 10, left: 10, right: 10, bottom: 10 }}
+      style={props.style}
+      activeOpacity={0.9}
+    >
       <Icon source={'chevron-left'} size={props.size || 28} color={props.color || color.primary} />
     </TouchableOpacity>
   )

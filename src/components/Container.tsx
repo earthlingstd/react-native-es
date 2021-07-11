@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { View, StyleProp, ViewStyle } from 'react-native'
-import SafeAreaView from 'react-native-safe-area-view'
+import { Edge, SafeAreaView } from 'react-native-safe-area-context'
 
 import useTheme from '../theme/useTheme'
 
@@ -25,10 +25,11 @@ interface Props {
   children?: React.ReactNode
   safe?: boolean
   style?: StyleProp<ViewStyle>
-  forceInset?: ForceInsetProp
+  edges?: ReadonlyArray<Edge>
 }
 
 const Container: React.FC<Props> = props => {
+  const { edges = ['right', 'bottom', 'left', 'top'] } = props
   const { color } = useTheme<Theme.Color>()
 
   function renderContent(applyStyle: boolean = false) {
@@ -41,10 +42,7 @@ const Container: React.FC<Props> = props => {
 
   if (props.safe)
     return (
-      <SafeAreaView
-        style={{ backgroundColor: color.background, flex: 1 }}
-        forceInset={props.forceInset}
-      >
+      <SafeAreaView style={{ backgroundColor: color.background, flex: 1 }} edges={edges}>
         {renderContent()}
       </SafeAreaView>
     )
